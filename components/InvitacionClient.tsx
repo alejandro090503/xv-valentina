@@ -1,0 +1,162 @@
+"use client";
+import { useState } from "react";
+import SplashScreen from "./SplashScreen";
+import Hero from "./Hero";
+import Ornament from "./Ornament";
+import CountdownTimer from "./CountdownTimer";
+import Ubicacion from "./Ubicacion";
+import CalendarioBtn from "./CalendarioBtn";
+import Itinerario from "./Itinerario";
+import DressCode from "./DressCode";
+import Familia from "./Familia";
+import MesaRegalos from "./MesaRegalos";
+import InstagramSection from "./InstagramSection";
+import RSVPWrapper from "./RSVPWrapper";
+import Footer from "./Footer";
+import MusicFab from "./MusicFab";
+import ScrollReveal from "./ScrollReveal";
+
+export default function InvitacionClient() {
+  const [opened, setOpened] = useState(false);
+
+  const handleOpen = () => {
+    setOpened(true);
+    // Pequeño delay para la animación de salida
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }, 100);
+  };
+
+  return (
+    <>
+      {/* SPLASH */}
+      {!opened && <SplashScreen onOpen={handleOpen} />}
+
+      {/* CONTENIDO PRINCIPAL */}
+      <div
+        style={{
+          maxWidth: 430,
+          margin: "0 auto",
+          position: "relative",
+          overflowX: "clip",
+          zIndex: 1,
+          backgroundColor: "#fff5f9",
+          backgroundImage: `
+            url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><g transform='translate(100,100)'><ellipse rx='16' ry='28' fill='%23d4478a' fill-opacity='.038' transform='rotate(0) translate(0,-12)'/><ellipse rx='16' ry='28' fill='%23ffa8c5' fill-opacity='.032' transform='rotate(72) translate(0,-12)'/><ellipse rx='16' ry='28' fill='%23d4478a' fill-opacity='.032' transform='rotate(144) translate(0,-12)'/><ellipse rx='16' ry='28' fill='%23ffa8c5' fill-opacity='.032' transform='rotate(216) translate(0,-12)'/><ellipse rx='16' ry='28' fill='%23d4478a' fill-opacity='.032' transform='rotate(288) translate(0,-12)'/><circle r='8' fill='%23efcb6d' fill-opacity='.060'/></g></svg>"),
+            url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><g transform='translate(50,50)'><ellipse rx='9' ry='17' fill='%23ffa8c5' fill-opacity='.030' transform='rotate(36) translate(0,-7)'/><ellipse rx='9' ry='17' fill='%23d4478a' fill-opacity='.025' transform='rotate(108) translate(0,-7)'/><ellipse rx='9' ry='17' fill='%23ffa8c5' fill-opacity='.025' transform='rotate(180) translate(0,-7)'/><ellipse rx='9' ry='17' fill='%23d4478a' fill-opacity='.025' transform='rotate(252) translate(0,-7)'/><ellipse rx='9' ry='17' fill='%23ffa8c5' fill-opacity='.025' transform='rotate(324) translate(0,-7)'/><circle r='4.5' fill='%23efcb6d' fill-opacity='.048'/></g></svg>")
+          `,
+          backgroundRepeat: "repeat",
+          backgroundSize: "200px 200px, 100px 100px",
+          backgroundPosition: "0 0, 50px 50px",
+        }}
+      >
+        {/* HERO */}
+        <Hero />
+
+        {/* ORNAMENTO */}
+        <ScrollReveal>
+          <Ornament />
+        </ScrollReveal>
+
+        {/* FECHA */}
+        <ScrollReveal>
+          <div style={{ padding: "32px 26px 10px", textAlign: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 18 }}>
+              <div style={{ flex: 1, maxWidth: 60, height: 1, background: "linear-gradient(to right,transparent,#d4478a)", opacity: 0.5 }} />
+              <div style={{
+                fontFamily: "var(--font-cormorant), serif",
+                fontWeight: 600,
+                fontSize: 18,
+                letterSpacing: 7,
+                textTransform: "uppercase",
+                color: "#8b1a52",
+              }}>
+                19 · Junio · 2026
+              </div>
+              <div style={{ flex: 1, maxWidth: 60, height: 1, background: "linear-gradient(to left,transparent,#d4478a)", opacity: 0.5 }} />
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* COUNTDOWN */}
+        <ScrollReveal>
+          <CountdownTimer />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Ornament />
+        </ScrollReveal>
+
+        {/* UBICACIÓN */}
+        <ScrollReveal>
+          <Ubicacion />
+        </ScrollReveal>
+
+        {/* CALENDARIO */}
+        <ScrollReveal>
+          <CalendarioBtn />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Ornament />
+        </ScrollReveal>
+
+        {/* ITINERARIO */}
+        <ScrollReveal>
+          <Itinerario />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Ornament />
+        </ScrollReveal>
+
+        {/* DRESS CODE */}
+        <ScrollReveal>
+          <DressCode />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Ornament />
+        </ScrollReveal>
+
+        {/* FAMILIA */}
+        <ScrollReveal>
+          <Familia />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Ornament />
+        </ScrollReveal>
+
+        {/* MESA DE REGALOS */}
+        <ScrollReveal>
+          <MesaRegalos />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Ornament />
+        </ScrollReveal>
+
+        {/* INSTAGRAM / ÁLBUM */}
+        <ScrollReveal>
+          <InstagramSection />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Ornament />
+        </ScrollReveal>
+
+        {/* RSVP */}
+        <RSVPWrapper />
+
+        {/* FOOTER */}
+        <ScrollReveal>
+          <Footer />
+        </ScrollReveal>
+      </div>
+
+      {/* FAB MÚSICA */}
+      <MusicFab />
+    </>
+  );
+}
