@@ -85,10 +85,22 @@ export default function Ubicacion() {
 
           <div style={{
             fontFamily: "var(--font-cormorant), serif",
+            fontWeight: 600,
+            fontSize: 16,
+            color: "#3a0f26",
+            letterSpacing: 0.5,
+            lineHeight: 1.5,
+            marginBottom: 4,
+          }}>
+            Casa Toledo Salón y Jardín
+          </div>
+
+          <div style={{
+            fontFamily: "var(--font-cormorant), serif",
             fontStyle: "italic",
             fontWeight: 500,
-            fontSize: 17,
-            color: "rgba(58,15,38,.75)",
+            fontSize: 15,
+            color: "rgba(58,15,38,.65)",
             letterSpacing: 0.4,
             lineHeight: 1.75,
             marginBottom: 8,
@@ -118,7 +130,7 @@ export default function Ubicacion() {
 
         <div style={{ textAlign: "center", padding: "0 22px 26px" }}>
           <a
-            href="https://maps.app.goo.gl/GydTXjvnz2FJQQbg7"
+            href="https://maps.app.goo.gl/Uv1thi7je2Bct2ut9"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -152,7 +164,7 @@ export default function Ubicacion() {
             opacity: 0.92,
             filter: "saturate(0.85)",
           }}
-          src="https://maps.google.com/maps?q=Durango,+Dgo.,+Mexico&output=embed&hl=es&z=14"
+          src="https://maps.google.com/maps?q=23.9698477,-104.7034682&output=embed&hl=es&z=17"
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
