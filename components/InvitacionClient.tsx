@@ -101,6 +101,15 @@ export default function InvitacionClient() {
           <Ubicacion />
         </ScrollReveal>
 
+        {/* FAMILIA — movida antes del calendario */}
+        <ScrollReveal>
+          <Familia />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Ornament />
+        </ScrollReveal>
+
         {/* CALENDARIO */}
         <ScrollReveal>
           <CalendarioBtn />
@@ -122,15 +131,6 @@ export default function InvitacionClient() {
         {/* DRESS CODE */}
         <ScrollReveal>
           <DressCode />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <Ornament />
-        </ScrollReveal>
-
-        {/* FAMILIA */}
-        <ScrollReveal>
-          <Familia />
         </ScrollReveal>
 
         <ScrollReveal>

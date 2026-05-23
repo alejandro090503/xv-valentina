@@ -14,7 +14,7 @@ export default function Familia() {
         marginBottom: 8,
         opacity: 0.85,
       }}>
-        Con la Bendición de
+        Acompañada de
       </p>
       <h2 style={{
         fontFamily: "var(--font-great-vibes), cursive",
@@ -80,7 +80,7 @@ export default function Familia() {
             color: "#3a0f26",
             lineHeight: 1.85,
           }}>
-            Martha Rocío Moreno Jiménez
+            Reyes Meza Mendoza
             <span style={{
               display: "block",
               fontStyle: "italic",
@@ -90,7 +90,7 @@ export default function Familia() {
               lineHeight: 1.1,
               margin: "4px 0",
             }}>&amp;</span>
-            Reyes Meza Mendoza
+            Martha Rocío Moreno Jiménez
           </div>
         </div>
 

@@ -105,11 +105,11 @@ export default function Hero() {
 
   useEffect(() => {
     const schedule = [
-      { el: nameRef,    delay: 200,  styles: { opacity: "1", transform: "translateY(0) scale(1)" } },
-      { el: frameRef,   delay: 580,  styles: { opacity: "1", transform: "scaleY(1)" } },
-      { el: xvRef,      delay: 880,  styles: { opacity: "1", transform: "translateY(0)" } },
-      { el: dateRef,    delay: 1180, styles: { opacity: "1", transform: "translateY(0)" } },
-      { el: messageRef, delay: 1480, styles: { opacity: "1", transform: "translateY(0)" } },
+      { el: messageRef, delay: 180,  styles: { opacity: "1", transform: "translateY(0)" } },
+      { el: nameRef,    delay: 480,  styles: { opacity: "1", transform: "translateY(0) scale(1)" } },
+      { el: frameRef,   delay: 820,  styles: { opacity: "1", transform: "scaleY(1)" } },
+      { el: xvRef,      delay: 1100, styles: { opacity: "1", transform: "translateY(0)" } },
+      { el: dateRef,    delay: 1380, styles: { opacity: "1", transform: "translateY(0)" } },
     ];
     const timers = schedule.map(({ el, delay, styles }) =>
       setTimeout(() => { if (el.current) Object.assign(el.current.style, styles); }, delay)
@@ -159,7 +159,30 @@ export default function Hero() {
         }} />
       ))}
 
-      {/* ══════════ NOMBRE — más grande, fuera del frame ══════════ */}
+      {/* ══════════ MENSAJE — ahora arriba del nombre ══════════ */}
+      <p
+        ref={messageRef}
+        style={{
+          maxWidth: 360,
+          padding: "0 32px 22px",
+          margin: 0,
+          textAlign: "center",
+          fontFamily: "var(--font-cormorant), serif",
+          fontStyle: "italic",
+          fontWeight: 500,
+          fontSize: 15,
+          lineHeight: 1.78,
+          letterSpacing: 0.6,
+          color: "#8b1a52",
+          opacity: 0,
+          transform: "translateY(14px)",
+          transition: "opacity 0.95s ease, transform 0.95s ease",
+        }}
+      >
+        Hoy comienza una nueva etapa llena de sueños, ilusiones y momentos que guardaré por siempre en mi corazón. Quiero compartir contigo la emoción, la magia y la alegría de esta noche tan especial.
+      </p>
+
+      {/* ══════════ NOMBRE — fuera del frame ══════════ */}
       <div style={{
         width: "100%",
         textAlign: "center",
@@ -300,29 +323,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* ══════════ MENSAJE DE LA QUINCEAÑERA ══════════ */}
-      <p
-        ref={messageRef}
-        style={{
-          maxWidth: 360,
-          padding: "36px 32px 0",
-          margin: 0,
-          textAlign: "center",
-          fontFamily: "var(--font-cormorant), serif",
-          fontStyle: "italic",
-          fontWeight: 500,
-          fontSize: 15,
-          lineHeight: 1.78,
-          letterSpacing: 0.6,
-          color: "#8b1a52",
-          opacity: 0,
-          transform: "translateY(14px)",
-          transition: "opacity 0.95s ease, transform 0.95s ease",
-        }}
-      >
-        Hoy comienza una nueva etapa llena de sueños, ilusiones y momentos que guardaré por siempre en mi corazón. Quiero compartir contigo la emoción, la magia y la alegría de esta noche tan especial.
-      </p>
 
       {/* Scroll hint */}
       <div style={{
