@@ -7,12 +7,15 @@ export default function MesaRegalos() {
         fontFamily: "var(--font-great-vibes), cursive",
         fontSize: 50,
         textAlign: "center",
-        lineHeight: 1.1,
+        lineHeight: 1.25,
         marginBottom: 16,
+        padding: "6px 24px 10px",
         background: "linear-gradient(135deg,#8b1a52 0%,#d4478a 45%,#efcb6d 100%)",
         WebkitBackgroundClip: "text",
         WebkitTextFillColor: "transparent",
         backgroundClip: "text",
+        overflow: "visible",
+        display: "block",
       }}>
         Mesa de Regalos
       </h2>
