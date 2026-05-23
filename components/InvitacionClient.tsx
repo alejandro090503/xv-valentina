@@ -17,24 +17,29 @@ import MusicFab from "./MusicFab";
 import ScrollReveal from "./ScrollReveal";
 
 export default function InvitacionClient() {
-  const [opened, setOpened] = useState(false);
+  const [contentVisible, setContentVisible] = useState(false);
+  const [splashMounted, setSplashMounted] = useState(true);
 
   const handleOpen = () => {
-    setOpened(true);
-    // Pequeño delay para la animación de salida
+    // Fade-in del contenido empieza de inmediato (en paralelo con el fade-out del splash)
+    setContentVisible(true);
+    // Desmontar el splash tras completarse su fade (0.75s + margen)
     setTimeout(() => {
+      setSplashMounted(false);
       window.scrollTo({ top: 0, behavior: "instant" });
-    }, 100);
+    }, 820);
   };
 
   return (
     <>
       {/* SPLASH */}
-      {!opened && <SplashScreen onOpen={handleOpen} />}
+      {splashMounted && <SplashScreen onOpen={handleOpen} />}
 
       {/* CONTENIDO PRINCIPAL */}
       <div
         style={{
+          opacity: contentVisible ? 1 : 0,
+          transition: "opacity 0.85s ease",
           maxWidth: 430,
           margin: "0 auto",
           position: "relative",

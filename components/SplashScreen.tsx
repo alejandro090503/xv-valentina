@@ -1,75 +1,86 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Props {
   onOpen: () => void;
 }
 
 export default function SplashScreen({ onOpen }: Props) {
-  const monogramRef = useRef<HTMLDivElement>(null);
-  const nameRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
-  const hintRef = useRef<HTMLButtonElement>(null);
-  const screenRef = useRef<HTMLDivElement>(null);
+  const monogramRef  = useRef<HTMLDivElement>(null);
+  const nameRef      = useRef<HTMLDivElement>(null);
+  const lineRef      = useRef<HTMLDivElement>(null);
+  const hintRef      = useRef<HTMLButtonElement>(null);
+  const screenRef    = useRef<HTMLDivElement>(null);
+  const [exiting, setExiting] = useState(false);
 
+  /* Entrada escalonada */
   useEffect(() => {
     const el = screenRef.current;
     if (!el) return;
+    requestAnimationFrame(() => { if (el) el.style.opacity = "1"; });
 
-    // Fade-in screen
-    requestAnimationFrame(() => {
-      if (el) el.style.opacity = "1";
-    });
-
-    const delays = [
+    const schedule = [
       { ref: monogramRef, delay: 300, styles: { opacity: "1", transform: "scale(1)" } },
-      { ref: nameRef, delay: 700, styles: { opacity: "1" } },
-      { ref: lineRef, delay: 1000, styles: { opacity: "1" } },
-      { ref: hintRef, delay: 1400, styles: { opacity: "1" } },
+      { ref: nameRef,     delay: 700, styles: { opacity: "1" } },
+      { ref: lineRef,     delay: 1000, styles: { opacity: "1" } },
+      { ref: hintRef,     delay: 1400, styles: { opacity: "1" } },
     ];
-
-    const timers = delays.map(({ ref, delay, styles }) =>
-      setTimeout(() => {
-        if (ref.current) Object.assign(ref.current.style, styles);
-      }, delay)
+    const timers = schedule.map(({ ref, delay, styles }) =>
+      setTimeout(() => { if (ref.current) Object.assign(ref.current.style, styles); }, delay)
     );
-
     return () => timers.forEach(clearTimeout);
   }, []);
+
+  /* Crossfade: notifica al padre de inmediato y se desvanece en paralelo */
+  const handleOpen = () => {
+    if (exiting) return;
+    setExiting(true);
+    const el = screenRef.current;
+    if (el) {
+      el.style.transition = "opacity 0.75s cubic-bezier(0.4,0,0.2,1)";
+      el.style.opacity = "0";
+    }
+    onOpen(); // avisar YA — el contenido empieza su fade-in simultáneamente
+  };
 
   return (
     <div
       ref={screenRef}
-      onClick={onOpen}
+      onClick={handleOpen}
       role="button"
       aria-label="Toca para ver la invitación"
       style={{
         position: "fixed",
         inset: 0,
         zIndex: 10000,
-        overflow: "hidden",
+        /* sin overflow:hidden → la "V" no se recorta */
+        overflow: "visible",
         cursor: "pointer",
         background: "linear-gradient(160deg,#3a0f26 0%,#5c1a40 50%,#3a0f26 100%)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        gap: 0,
         opacity: 0,
         transition: "opacity 0.6s ease",
+        /* clip al viewport sin overflow */
+        clipPath: "inset(0)",
       }}
     >
-      {/* Partículas decorativas */}
+      {/* Fondo oscuro sólido para cubrir el contenido detrás */}
+      <div style={{ position: "fixed", inset: 0, zIndex: -1,
+        background: "linear-gradient(160deg,#3a0f26 0%,#5c1a40 50%,#3a0f26 100%)" }} />
+
       <Particles />
 
-      {/* Monograma */}
+      {/* Monograma — padding amplio para que drop-shadow no se corte */}
       <div
         ref={monogramRef}
         style={{
           fontFamily: "var(--font-great-vibes), cursive",
-          fontSize: 120,
-          lineHeight: 1.2,
-          padding: "0 24px",
+          fontSize: 130,
+          lineHeight: 1.3,
+          padding: "20px 40px 10px",   /* espacio generoso arriba/lados */
           background: "linear-gradient(135deg,#ffa8c5,#efcb6d 50%,#ff7dc6)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
@@ -92,8 +103,8 @@ export default function SplashScreen({ onOpen }: Props) {
           fontSize: 15,
           letterSpacing: 8,
           textTransform: "uppercase",
-          color: "rgba(255,168,197,0.70)",
-          marginTop: 6,
+          color: "rgba(255,168,197,0.75)",
+          marginTop: 2,
           opacity: 0,
           transition: "opacity 0.7s ease",
         }}
@@ -101,7 +112,7 @@ export default function SplashScreen({ onOpen }: Props) {
         Valentina · XV Años
       </div>
 
-      {/* Línea divisoria */}
+      {/* Línea */}
       <div
         ref={lineRef}
         style={{
@@ -114,7 +125,7 @@ export default function SplashScreen({ onOpen }: Props) {
         }}
       />
 
-      {/* Botón hint */}
+      {/* Hint */}
       <button
         ref={hintRef}
         style={{
@@ -122,7 +133,7 @@ export default function SplashScreen({ onOpen }: Props) {
           fontSize: 11,
           letterSpacing: 8,
           textTransform: "uppercase",
-          color: "rgba(255,168,197,0.85)",
+          color: "rgba(255,168,197,0.88)",
           opacity: 0,
           cursor: "pointer",
           whiteSpace: "nowrap",
@@ -132,7 +143,6 @@ export default function SplashScreen({ onOpen }: Props) {
           borderRadius: 40,
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
-          overflow: "hidden",
           position: "relative",
           animation: "hintFloat 3.2s ease-in-out infinite",
           transition: "opacity 0.7s ease",
@@ -144,34 +154,38 @@ export default function SplashScreen({ onOpen }: Props) {
   );
 }
 
-function Particles() {
-  const particles = Array.from({ length: 12 }, (_, i) => ({
-    id: i,
-    left: `${Math.random() * 100}%`,
-    size: Math.random() * 6 + 3,
-    duration: Math.random() * 6 + 6,
-    delay: Math.random() * 4,
-    color: i % 3 === 0 ? "#efcb6d" : i % 3 === 1 ? "#ffa8c5" : "#ff7dc6",
-  }));
+/* Partículas — posiciones fijas para evitar re-renders */
+const PARTICLES = [
+  { left: "8%",  size: 5, dur: 8,  del: 0,   color: "#efcb6d" },
+  { left: "22%", size: 3, dur: 11, del: 1.2, color: "#ffa8c5" },
+  { left: "38%", size: 7, dur: 7,  del: 0.5, color: "#ff7dc6" },
+  { left: "53%", size: 4, dur: 9,  del: 2.1, color: "#efcb6d" },
+  { left: "67%", size: 5, dur: 10, del: 0.8, color: "#ffa8c5" },
+  { left: "81%", size: 3, dur: 8,  del: 1.7, color: "#ff7dc6" },
+  { left: "15%", size: 6, dur: 12, del: 3,   color: "#efcb6d" },
+  { left: "47%", size: 4, dur: 9,  del: 2.5, color: "#ffa8c5" },
+  { left: "72%", size: 5, dur: 11, del: 0.3, color: "#ff7dc6" },
+  { left: "91%", size: 3, dur: 8,  del: 1.5, color: "#efcb6d" },
+  { left: "31%", size: 6, dur: 10, del: 3.5, color: "#ffa8c5" },
+  { left: "60%", size: 4, dur: 7,  del: 2.8, color: "#ff7dc6" },
+];
 
+function Particles() {
   return (
     <>
-      {particles.map((p) => (
-        <div
-          key={p.id}
-          style={{
-            position: "absolute",
-            bottom: "-10px",
-            left: p.left,
-            width: p.size,
-            height: p.size,
-            borderRadius: "50%",
-            background: p.color,
-            opacity: 0.4,
-            animation: `floatUp ${p.duration}s ${p.delay}s linear infinite`,
-            pointerEvents: "none",
-          }}
-        />
+      {PARTICLES.map((p, i) => (
+        <div key={i} style={{
+          position: "fixed",
+          bottom: -10,
+          left: p.left,
+          width: p.size,
+          height: p.size,
+          borderRadius: "50%",
+          background: p.color,
+          opacity: 0.45,
+          animation: `floatUp ${p.dur}s ${p.del}s linear infinite`,
+          pointerEvents: "none",
+        }} />
       ))}
     </>
   );
