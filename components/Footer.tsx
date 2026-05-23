@@ -6,13 +6,15 @@ export default function Footer() {
       <div style={{
         fontFamily: "var(--font-great-vibes), cursive",
         fontSize: 130,
-        lineHeight: 1.1,
+        lineHeight: 1.35,
         background: "linear-gradient(135deg,#d4478a 0%,#efcb6d 50%,#8b1a52 100%)",
         WebkitBackgroundClip: "text",
         WebkitTextFillColor: "transparent",
         backgroundClip: "text",
-        padding: "0 24px",
+        padding: "18px 50px 18px 40px",
         filter: "drop-shadow(0 3px 18px rgba(212,71,138,0.25))",
+        overflow: "visible",
+        display: "inline-block",
       }}>
         V
       </div>

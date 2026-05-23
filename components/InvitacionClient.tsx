@@ -61,6 +61,11 @@ export default function InvitacionClient() {
         {/* HERO */}
         <Hero />
 
+        {/* FAMILIA — justo después del header */}
+        <ScrollReveal>
+          <Familia />
+        </ScrollReveal>
+
         {/* ORNAMENTO */}
         <ScrollReveal>
           <Ornament />
@@ -99,15 +104,6 @@ export default function InvitacionClient() {
         {/* UBICACIÓN */}
         <ScrollReveal>
           <Ubicacion />
-        </ScrollReveal>
-
-        {/* FAMILIA — movida antes del calendario */}
-        <ScrollReveal>
-          <Familia />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <Ornament />
         </ScrollReveal>
 
         {/* CALENDARIO */}

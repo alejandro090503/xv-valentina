@@ -83,9 +83,9 @@ export default function SplashScreen({ onOpen }: Props) {
         ref={monogramRef}
         style={{
           fontFamily: "var(--font-great-vibes), cursive",
-          fontSize: 200,
+          fontSize: 280,
           lineHeight: 1.2,
-          padding: "20px 50px 14px",
+          padding: "30px 70px 22px",
           background: "linear-gradient(135deg,#d4478a 0%,#efcb6d 45%,#8b1a52 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",

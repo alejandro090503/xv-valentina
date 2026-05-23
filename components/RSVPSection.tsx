@@ -49,19 +49,6 @@ export default function RSVPSection() {
 
   return (
     <section style={{ padding: "64px 26px" }}>
-      <p style={{
-        fontFamily: "var(--font-cormorant), serif",
-        fontStyle: "italic",
-        fontSize: 13,
-        letterSpacing: 5,
-        textTransform: "uppercase",
-        color: "#d4478a",
-        textAlign: "center",
-        marginBottom: 8,
-        opacity: 0.85,
-      }}>
-        Confirmación de Asistencia
-      </p>
       <h2 style={{
         fontFamily: "var(--font-great-vibes), cursive",
         fontSize: 50,

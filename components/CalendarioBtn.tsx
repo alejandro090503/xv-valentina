@@ -30,12 +30,15 @@ export default function CalendarioBtn() {
       <h2 style={{
         fontFamily: "var(--font-great-vibes), cursive",
         fontSize: 48,
-        lineHeight: 1.1,
+        lineHeight: 1.25,
         marginBottom: 16,
+        padding: "4px 20px 8px",
         background: "linear-gradient(135deg,#8b1a52 0%,#d4478a 45%,#efcb6d 100%)",
         WebkitBackgroundClip: "text",
         WebkitTextFillColor: "transparent",
         backgroundClip: "text",
+        overflow: "visible",
+        display: "inline-block",
       }}>
         Guárdalo
       </h2>

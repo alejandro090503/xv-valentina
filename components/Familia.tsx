@@ -6,13 +6,14 @@ export default function Familia() {
       <p style={{
         fontFamily: "var(--font-cormorant), serif",
         fontStyle: "italic",
-        fontSize: 13,
+        fontWeight: 600,
+        fontSize: 14,
         letterSpacing: 5,
         textTransform: "uppercase",
-        color: "#ffa8c5",
+        color: "#8b1a52",
         textAlign: "center",
         marginBottom: 8,
-        opacity: 0.85,
+        opacity: 0.95,
       }}>
         Acompañada de
       </p>
@@ -64,12 +65,13 @@ export default function Familia() {
           <p style={{
             fontFamily: "var(--font-cormorant), serif",
             fontStyle: "italic",
-            fontSize: 12,
+            fontWeight: 700,
+            fontSize: 15,
             letterSpacing: 6,
             textTransform: "uppercase",
-            color: "#d4478a",
+            color: "#8b1a52",
             marginBottom: 14,
-            opacity: 0.85,
+            opacity: 1,
           }}>
             Mis Padres
           </p>
@@ -153,12 +155,13 @@ export default function Familia() {
           <p style={{
             fontFamily: "var(--font-cormorant), serif",
             fontStyle: "italic",
-            fontSize: 12,
+            fontWeight: 700,
+            fontSize: 15,
             letterSpacing: 6,
             textTransform: "uppercase",
-            color: "#efcb6d",
+            color: "#8b1a52",
             marginBottom: 14,
-            opacity: 0.90,
+            opacity: 1,
           }}>
             Mi Hermana
           </p>

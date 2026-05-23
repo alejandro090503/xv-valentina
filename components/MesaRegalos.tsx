@@ -3,19 +3,6 @@
 export default function MesaRegalos() {
   return (
     <section style={{ padding: "64px 26px" }}>
-      <p style={{
-        fontFamily: "var(--font-cormorant), serif",
-        fontStyle: "italic",
-        fontSize: 13,
-        letterSpacing: 5,
-        textTransform: "uppercase",
-        color: "#d4478a",
-        textAlign: "center",
-        marginBottom: 8,
-        opacity: 0.85,
-      }}>
-        Tu presencia es mi regalo
-      </p>
       <h2 style={{
         fontFamily: "var(--font-great-vibes), cursive",
         fontSize: 50,
@@ -34,13 +21,13 @@ export default function MesaRegalos() {
       <p style={{
         fontFamily: "var(--font-cormorant), serif",
         fontStyle: "italic",
-        fontWeight: 500,
-        fontSize: 16,
-        color: "rgba(58,15,38,0.78)",
-        lineHeight: 1.7,
-        letterSpacing: 0.3,
+        fontWeight: 600,
+        fontSize: 19,
+        color: "#8b1a52",
+        lineHeight: 1.65,
+        letterSpacing: 0.4,
         textAlign: "center",
-        maxWidth: 340,
+        maxWidth: 360,
         margin: "0 auto 30px",
       }}>
         Tu cariño y presencia son el mejor regalo que puedo recibir. Si deseas obsequiarme algo, estas son mis sugerencias.
@@ -109,11 +96,11 @@ export default function MesaRegalos() {
           <p style={{
             fontFamily: "var(--font-cormorant), serif",
             fontStyle: "italic",
-            fontWeight: 500,
-            fontSize: 15,
-            color: "rgba(58,15,38,0.72)",
-            lineHeight: 1.65,
-            letterSpacing: 0.3,
+            fontWeight: 600,
+            fontSize: 18,
+            color: "#8b1a52",
+            lineHeight: 1.55,
+            letterSpacing: 0.4,
           }}>
             Un sobre con tu bendición llenará mi corazón de alegría.
           </p>
@@ -185,11 +172,11 @@ export default function MesaRegalos() {
           <p style={{
             fontFamily: "var(--font-cormorant), serif",
             fontStyle: "italic",
-            fontWeight: 500,
-            fontSize: 15,
-            color: "rgba(58,15,38,0.72)",
-            lineHeight: 1.65,
-            letterSpacing: 0.3,
+            fontWeight: 600,
+            fontSize: 18,
+            color: "#8b1a52",
+            lineHeight: 1.55,
+            letterSpacing: 0.4,
           }}>
             Cualquier detalle elegido con cariño será atesorado por siempre.
           </p>
