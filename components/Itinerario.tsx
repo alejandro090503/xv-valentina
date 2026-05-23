@@ -4,9 +4,9 @@ import { motion, useInView } from "framer-motion";
 
 const ITEMS = [
   { time: "8:45 pm", event: "Recepción de Invitados", gem: 0 },
-  { time: "9:25 pm", event: "Entrada de la Quinceañera & Valses", gem: 1 },
+  { time: "9:25 pm", event: "Vals de la Quinceañera", gem: 1 },
   { time: "10:05 pm", event: "Cena", gem: 2 },
-  { time: "10:40 pm", event: "¡Inicio de la Fiesta! 🎉", gem: 0 },
+  { time: "10:40 pm", event: "¡Inicio de la Fiesta!", gem: 0 },
   { time: "2:00 am", event: "Fin del Evento", gem: 1 },
 ];
 
@@ -154,19 +154,6 @@ export default function Itinerario() {
 
   return (
     <section style={{ padding: "64px 24px", overflow: "visible" }}>
-      <p style={{
-        fontFamily: "var(--font-cormorant), serif",
-        fontStyle: "italic",
-        fontSize: 14,
-        letterSpacing: 5,
-        textTransform: "uppercase",
-        color: "#ff7dc6",
-        textAlign: "center",
-        marginBottom: 8,
-        opacity: 0.85,
-      }}>
-        Programa del Día
-      </p>
       <h2 style={{
         fontFamily: "var(--font-great-vibes), cursive",
         fontSize: 50,

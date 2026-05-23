@@ -36,15 +36,15 @@ function Ring({ value, label, max, color, glowColor }: RingProps) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <div style={{ position: "relative", width: 112, height: 112 }}>
+      <div style={{ position: "relative", width: 78, height: 78 }}>
         <svg viewBox="0 0 120 120" style={{ width: "100%", height: "100%", overflow: "visible", filter: "drop-shadow(0 2px 8px rgba(139,26,82,0.08))" }}>
-          <circle cx="60" cy="60" r={r} fill="none" stroke="rgba(212,71,138,0.07)" strokeWidth="2.5" />
-          <circle cx="60" cy="60" r={r} fill="none" stroke={glowColor} strokeWidth="9" strokeLinecap="round"
+          <circle cx="60" cy="60" r={r} fill="none" stroke="rgba(212,71,138,0.07)" strokeWidth="3" />
+          <circle cx="60" cy="60" r={r} fill="none" stroke={glowColor} strokeWidth="10" strokeLinecap="round"
             strokeDasharray={circ} strokeDashoffset={offset}
             transform="rotate(-90 60 60)"
             style={{ filter: "blur(7px)", opacity: 0.3 }}
           />
-          <circle cx="60" cy="60" r={r} fill="none" stroke={color} strokeWidth="2.8" strokeLinecap="round"
+          <circle cx="60" cy="60" r={r} fill="none" stroke={color} strokeWidth="3.4" strokeLinecap="round"
             strokeDasharray={circ} strokeDashoffset={offset}
             transform="rotate(-90 60 60)"
             style={{ transition: "stroke-dashoffset 0.5s ease" }}
@@ -53,24 +53,24 @@ function Ring({ value, label, max, color, glowColor }: RingProps) {
         <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
           <span style={{
             fontFamily: "var(--font-cormorant), serif",
-            fontSize: 34,
+            fontSize: 26,
             fontWeight: 600,
             color: "#3a0f26",
             lineHeight: 1,
             fontVariantNumeric: "tabular-nums",
-            letterSpacing: 1,
+            letterSpacing: 0.6,
           }}>
             {String(value).padStart(2, "0")}
           </span>
           <span style={{
             fontFamily: "var(--font-cormorant), serif",
             fontStyle: "italic",
-            fontSize: 10,
-            letterSpacing: "2.5px",
+            fontSize: 8,
+            letterSpacing: "1.6px",
             textTransform: "uppercase",
             color: "#d4478a",
-            marginTop: 4,
-            opacity: 0.75,
+            marginTop: 2,
+            opacity: 0.78,
           }}>
             {label}
           </span>
@@ -120,7 +120,7 @@ export default function CountdownTimer() {
           background: "linear-gradient(90deg,transparent,#d4478a 25%,#efcb6d 50%,#ffa8c5 75%,transparent)",
         }} />
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "30px 20px", maxWidth: 290, margin: "0 auto" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "8px", maxWidth: 380, margin: "0 auto", justifyItems: "center" }}>
           <Ring value={time.days} label="Días" max={TOTAL_DAYS} color="#d4478a" glowColor="#d4478a" />
           <Ring value={time.hours} label="Horas" max={24} color="#ff7dc6" glowColor="#ff7dc6" />
           <Ring value={time.minutes} label="Minutos" max={60} color="#efcb6d" glowColor="#efcb6d" />

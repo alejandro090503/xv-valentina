@@ -5,13 +5,16 @@ export default function Footer() {
     <footer style={{ padding: "50px 20px", textAlign: "center" }}>
       <div style={{
         fontFamily: "var(--font-great-vibes), cursive",
-        fontSize: 52,
-        background: "linear-gradient(135deg,#d4478a,#ffa8c5,#8b1a52)",
+        fontSize: 130,
+        lineHeight: 1.1,
+        background: "linear-gradient(135deg,#d4478a 0%,#efcb6d 50%,#8b1a52 100%)",
         WebkitBackgroundClip: "text",
         WebkitTextFillColor: "transparent",
         backgroundClip: "text",
+        padding: "0 24px",
+        filter: "drop-shadow(0 3px 18px rgba(212,71,138,0.25))",
       }}>
-        Valentina
+        V
       </div>
       <div style={{
         fontFamily: "var(--font-cormorant), serif",

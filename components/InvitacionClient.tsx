@@ -73,11 +73,12 @@ export default function InvitacionClient() {
               <div style={{ flex: 1, maxWidth: 60, height: 1, background: "linear-gradient(to right,transparent,#d4478a)", opacity: 0.5 }} />
               <div style={{
                 fontFamily: "var(--font-cormorant), serif",
-                fontWeight: 600,
-                fontSize: 18,
-                letterSpacing: 7,
+                fontWeight: 700,
+                fontSize: 26,
+                letterSpacing: 8,
                 textTransform: "uppercase",
                 color: "#8b1a52",
+                textIndent: 8,
               }}>
                 19 · Junio · 2026
               </div>

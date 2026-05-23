@@ -85,12 +85,12 @@ export default function Ubicacion() {
 
           <div style={{
             fontFamily: "var(--font-cormorant), serif",
-            fontWeight: 600,
-            fontSize: 16,
+            fontWeight: 700,
+            fontSize: 24,
             color: "#3a0f26",
-            letterSpacing: 0.5,
-            lineHeight: 1.5,
-            marginBottom: 4,
+            letterSpacing: 1,
+            lineHeight: 1.3,
+            marginBottom: 8,
           }}>
             Casa Toledo Salón y Jardín
           </div>
