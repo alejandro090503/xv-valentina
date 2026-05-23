@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const PARTICLES = [
   { left: "7%",  size: 4, dur: 9,  del: 0,   color: "#d4478a" },
@@ -102,6 +102,16 @@ export default function Hero() {
   const xvRef      = useRef<HTMLDivElement>(null);
   const dateRef    = useRef<HTMLDivElement>(null);
   const messageRef = useRef<HTMLParagraphElement>(null);
+  const [persona, setPersona] = useState<{ para: string; pases: number } | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const para = params.get("para");
+    const rawP = params.get("pases");
+    const n = rawP ? parseInt(rawP, 10) : 1;
+    const validN = isNaN(n) || n < 1 || n > 20 ? 1 : n;
+    if (para) setPersona({ para, pases: validN });
+  }, []);
 
   useEffect(() => {
     const schedule = [
@@ -319,6 +329,36 @@ export default function Hero() {
               }}>
                 19 · Junio · 2026
               </span>
+
+              {persona && (
+                <p style={{
+                  marginTop: 18,
+                  fontFamily: "var(--font-cormorant), serif",
+                  fontStyle: "italic",
+                  fontSize: 14,
+                  lineHeight: 1.55,
+                  letterSpacing: 0.6,
+                  color: "#8b1a52",
+                  textAlign: "center",
+                }}>
+                  Esta invitación es para
+                  <br />
+                  <strong style={{
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    fontSize: 16,
+                    background: "linear-gradient(135deg,#c4920a,#efcb6d,#c4920a)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    letterSpacing: 1,
+                  }}>
+                    {persona.para}
+                  </strong>
+                  <br />
+                  con {persona.pases === 1 ? "1 pase" : `${persona.pases} pases`}
+                </p>
+              )}
             </div>
           </div>
         </div>
