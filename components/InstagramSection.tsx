@@ -146,7 +146,81 @@ export default function InstagramSection() {
           <div style={{
             width: 36,
             height: 1,
-            margin: "16px auto",
+            margin: "22px auto 18px",
+            background: "linear-gradient(90deg,transparent,rgba(212,71,138,0.4),transparent)",
+          }} />
+
+          {/* ══════════ QR DEL ÁLBUM COMPARTIDO ══════════ */}
+          <p style={{
+            fontFamily: "var(--font-cormorant), serif",
+            fontStyle: "italic",
+            fontSize: 13,
+            letterSpacing: 5,
+            textTransform: "uppercase",
+            color: "#d4478a",
+            marginBottom: 14,
+            opacity: 0.85,
+          }}>
+            Escanea & comparte
+          </p>
+
+          {/* Caja del QR con marco dorado */}
+          <div style={{
+            display: "inline-block",
+            padding: 14,
+            background: "#fff5f9",
+            border: "1px solid rgba(196,146,10,0.42)",
+            borderRadius: 18,
+            boxShadow: "0 4px 18px rgba(196,146,10,0.18), inset 0 0 0 4px rgba(255,255,255,0.6)",
+            position: "relative",
+            marginBottom: 14,
+          }}>
+            {/* Esquinas decorativas doradas */}
+            {(["tl","tr","bl","br"] as const).map((corner) => {
+              const pos: React.CSSProperties =
+                corner === "tl" ? { top: -1, left: -1 } :
+                corner === "tr" ? { top: -1, right: -1, transform: "rotate(90deg)", transformOrigin: "top right" } :
+                corner === "br" ? { bottom: -1, right: -1, transform: "rotate(180deg)", transformOrigin: "bottom right" } :
+                                  { bottom: -1, left: -1, transform: "rotate(270deg)", transformOrigin: "bottom left" };
+              return (
+                <div key={corner} style={{ position: "absolute", ...pos }}>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M2 2 L2 10" stroke="#c4920a" strokeWidth="1.2" strokeLinecap="round" opacity="0.85"/>
+                    <path d="M2 2 L10 2" stroke="#c4920a" strokeWidth="1.2" strokeLinecap="round" opacity="0.85"/>
+                    <circle cx="2" cy="2" r="1.5" fill="#c4920a" opacity="0.95"/>
+                  </svg>
+                </div>
+              );
+            })}
+
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=420x420&data=https%3A%2F%2Fwww.instagram.com%2Fexplore%2Ftags%2FVale15&color=8b1a52&bgcolor=fff5f9&margin=8&format=png"
+              alt="Código QR del álbum compartido — escanea para ver las fotos del evento"
+              width={200}
+              height={200}
+              style={{ display: "block", borderRadius: 8 }}
+            />
+          </div>
+
+          <p style={{
+            fontFamily: "var(--font-cormorant), serif",
+            fontStyle: "italic",
+            fontWeight: 500,
+            fontSize: 15,
+            color: "rgba(58,15,38,0.72)",
+            lineHeight: 1.6,
+            letterSpacing: 0.3,
+            maxWidth: 280,
+            margin: "0 auto",
+          }}>
+            Escanea con tu cámara para entrar al álbum compartido y ver todas las fotos del evento.
+          </p>
+
+          <div style={{
+            width: 36,
+            height: 1,
+            margin: "20px auto 16px",
             background: "linear-gradient(90deg,transparent,rgba(212,71,138,0.4),transparent)",
           }} />
 
