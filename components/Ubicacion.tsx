@@ -118,7 +118,7 @@ export default function Ubicacion() {
 
         <div style={{ textAlign: "center", padding: "0 22px 26px" }}>
           <a
-            href="https://share.google/zEklG9FwprWp0ZrHf"
+            href="https://maps.app.goo.gl/GydTXjvnz2FJQQbg7"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -152,7 +152,7 @@ export default function Ubicacion() {
             opacity: 0.92,
             filter: "saturate(0.85)",
           }}
-          src="https://maps.google.com/maps?q=Durango+Dgo+Mexico&output=embed&hl=es"
+          src="https://maps.google.com/maps?q=Durango,+Dgo.,+Mexico&output=embed&hl=es&z=14"
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
