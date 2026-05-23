@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import SplashScreen from "./SplashScreen";
 import Hero from "./Hero";
 import Ornament from "./Ornament";
@@ -13,15 +13,18 @@ import MesaRegalos from "./MesaRegalos";
 import InstagramSection from "./InstagramSection";
 import RSVPWrapper from "./RSVPWrapper";
 import Footer from "./Footer";
-import MusicFab from "./MusicFab";
+import MusicFab, { type MusicFabHandle } from "./MusicFab";
 import ScrollReveal from "./ScrollReveal";
 
 export default function InvitacionClient() {
   const [contentVisible, setContentVisible] = useState(false);
   const [splashMounted, setSplashMounted] = useState(true);
+  const musicRef = useRef<MusicFabHandle>(null);
 
   const handleOpen = () => {
-    // Fade-in del contenido empieza de inmediato (en paralelo con el fade-out del splash)
+    // Iniciar música AQUÍ — mismo call stack que el gesto del usuario → autoplay permitido
+    musicRef.current?.play();
+    // Fade-in del contenido en paralelo con el fade-out del splash
     setContentVisible(true);
     // Desmontar el splash tras completarse su fade (0.75s + margen)
     setTimeout(() => {
@@ -161,7 +164,7 @@ export default function InvitacionClient() {
       </div>
 
       {/* FAB MÚSICA */}
-      <MusicFab />
+      <MusicFab ref={musicRef} />
     </>
   );
 }

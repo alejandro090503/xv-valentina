@@ -1,7 +1,11 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, forwardRef, useImperativeHandle } from "react";
 
-export default function MusicFab() {
+export interface MusicFabHandle {
+  play: () => void;
+}
+
+const MusicFab = forwardRef<MusicFabHandle>((_, ref) => {
   const [playing, setPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -11,6 +15,15 @@ export default function MusicFab() {
     audioRef.current.volume = 0.5;
     return () => { audioRef.current?.pause(); };
   }, []);
+
+  /* Método expuesto al padre — llamado dentro del gesto del usuario */
+  useImperativeHandle(ref, () => ({
+    play() {
+      if (!audioRef.current || playing) return;
+      audioRef.current.play().catch(() => {});
+      setPlaying(true);
+    },
+  }));
 
   const toggle = () => {
     if (!audioRef.current) return;
@@ -192,4 +205,7 @@ export default function MusicFab() {
       </button>
     </div>
   );
-}
+});
+
+MusicFab.displayName = "MusicFab";
+export default MusicFab;
