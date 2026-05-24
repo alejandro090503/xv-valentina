@@ -85,7 +85,7 @@ export default function Familia() {
             color: "#3a0f26",
             lineHeight: 1.85,
           }}>
-            Reyes Meza Mendoza
+            José Reyes Meza Mendoza
             <span style={{
               display: "block",
               fontStyle: "italic",
@@ -253,7 +253,7 @@ export default function Familia() {
             color: "#3a0f26",
             lineHeight: 1.85,
           }}>
-            Edna Cristela Moreno Jiménez
+            Edna Moreno Jiménez
           </div>
         </div>
 
