@@ -4,8 +4,8 @@ import { useState, useEffect, useCallback } from "react";
 
 const PANEL_API = "https://panel-invitados.vercel.app/api/confirmar";
 const RSVP_URL  = "https://xv-valentina-three.vercel.app";
-/* Deadline: 28 may 2026 23:59:59 — desde 29 may 00:00 se congela */
-const RSVP_DEADLINE = new Date(2026, 4, 28, 23, 59, 59, 999);
+/* Deadline: 1 jun 2026 23:59:59 — desde 2 jun 00:00 se congela */
+const RSVP_DEADLINE = new Date(2026, 5, 1, 23, 59, 59, 999);
 
 type Choice = "yes" | "no" | "";
 
@@ -189,7 +189,7 @@ export default function RSVPSection() {
             color: "#8b1a52",
             textAlign: "center",
           }}>
-            ✦ El plazo para confirmar cerró el <strong style={{ fontStyle: "normal" }}>28 de mayo de 2026</strong>.<br />
+            ✦ El plazo para confirmar cerró el <strong style={{ fontStyle: "normal" }}>1 de junio de 2026</strong>.<br />
             Si necesitas ajustar tu respuesta, por favor contacta directamente.
           </div>
         )}
@@ -215,7 +215,7 @@ export default function RSVPSection() {
           fontStyle: "italic", fontWeight: 500, fontSize: 15,
           color: "#d4478a", letterSpacing: 2, marginBottom: 18,
         }}>
-          Confirma antes del 28 de mayo de 2026
+          Confirma antes del 1 de junio de 2026
         </p>
 
         {/* Toggle Sí/No asistiré */}

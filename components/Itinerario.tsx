@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 
 const ITEMS = [
   { time: "8:45 pm", event: "Recepción de Invitados", gem: 0 },
-  { time: "9:25 pm", event: "Vals de la Quinceañera", gem: 1 },
+  { time: "9:00 pm", event: "Vals de la Quinceañera", gem: 1 },
   { time: "10:05 pm", event: "Cena", gem: 2 },
   { time: "10:40 pm", event: "¡Inicio de la Fiesta!", gem: 0 },
   { time: "2:00 am", event: "Fin del Evento", gem: 1 },
