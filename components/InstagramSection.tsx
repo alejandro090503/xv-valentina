@@ -96,7 +96,7 @@ export default function InstagramSection() {
 
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://api.qrserver.com/v1/create-qr-code/?size=440x440&data=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F1nRhbtdCeDRWS84QN7q1chDWFvFnuE41s%3Fusp%3Dsharing&color=8b1a52&bgcolor=fff5f9&margin=8&format=png"
+              src="/imagenes/Vale15-QR-Album.png?v=2"
               alt="Código QR del álbum compartido — escanea para entrar"
               width={220}
               height={220}
